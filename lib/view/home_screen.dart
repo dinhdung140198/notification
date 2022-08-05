@@ -1,4 +1,5 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:firebase_notification/notitication_service/local_notifcation_service.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -35,6 +36,7 @@ class _MyHomePageState extends State<MyHomePage> {
         print('dungnd: ${message.notification!.title}');
         print('dungnd: ${message.notification!.body}');
         print('dungnd: ${message.data}');
+        LocalNoticationService.createanddisplaynotification(message);
       }
     });
 
@@ -42,9 +44,9 @@ class _MyHomePageState extends State<MyHomePage> {
     FirebaseMessaging.onMessageOpenedApp.listen((message) { 
       print('firebaseMessage.onMessageOpenedApp.listen');
       if(message.notification!=null){
-        print(message.notification!.title);
-        print(message.notification!.body);
-        print('message data2${message.data['id']}');
+        print('dungnd:${message.notification!.title}');
+        print('dungnd:${message.notification!.body}');
+        print('dungnd: message data2${message.data['id']}');
       }
     });
 

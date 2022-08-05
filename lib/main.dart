@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:firebase_notification/notitication_service/local_notifcation_service.dart';
 import 'package:firebase_notification/view/home_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -12,6 +13,8 @@ void main() async {
   await Firebase.initializeApp();
 
   FirebaseMessaging.onBackgroundMessage(backgroundHandler);
+  LocalNoticationService.initialize();
+
   runApp(const MyApp());
 }
 
